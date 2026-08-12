@@ -114,6 +114,7 @@ Variáveis disponíveis:
 - `OPENAI_API_KEY`: Chave da API OpenAI (obrigatória)
 - `OPENAI_MODEL`: Modelo a usar (padrão: `gpt-4o-mini`)
 - `CONFIANCA_MINIMA`: Limiar para fila de revisão humana (padrão: `0.6`)
+- `TOKEN_TEST_TOTAL_ITENS`: Total de itens para projeção de custo em `npm run token:test` (padrão: `500`)
 
 **4. Inicie o sistema**
 ```bash
@@ -166,6 +167,33 @@ npm run test:unit
 npm run test:integration
 ```
 
+### Previsão de custo
+
+Antes de processar um lote grande, você pode ter uma estimativa real de quantos tokens e quanto custará:
+
+```bash
+npm run token:test
+```
+
+O comando faz **uma única chamada** à API com uma mensagem real e projeta o custo para o volume configurado em `TOKEN_TEST_TOTAL_ITENS` no `.env`. Isso permite ajustar o volume esperado e ter uma previsão de custo mensal antes de rodar o pipeline completo.
+
+Exemplo de saída:
+```
+📊 Uso de tokens:
+   Tokens de entrada  (prompt):     1256
+   Tokens de saída    (completion):  95
+   Total:                            1351
+
+💰 Estimativa de custo (gpt-4o-mini | cotação: R$ 5.20/USD):
+   Entrada:  R$ 0,000979
+   Saída:    R$ 0,000296
+   Total:    R$ 0,001276
+
+📈 Projeção para os 500 itens do JSON:
+   ~675.500 tokens
+   ~R$ 0,6379
+```
+
 ---
 
 ## Estrutura de pastas
@@ -214,10 +242,10 @@ npm run test:integration
 
 | Item | Cálculo | Custo/mês |
 |---|---|---|
-| Input tokens | 500 msg/dia × 30 dias × ~850 tokens = 12,75M tokens × R$ 0,82/1M | **~R$ 10,50** |
-| Output tokens | 500 × 30 × ~120 tokens = 1,8M tokens × R$ 3,30/1M | **~R$ 5,94** |
+| Input tokens | 500 msg/dia × 30 dias × ~850 tokens = 12,75M tokens × R$ 0,78/1M | **~R$ 9,94** |
+| Output tokens | 500 × 30 × ~120 tokens = 1,8M tokens × R$ 3,12/1M | **~R$ 5,62** |
 | Infraestrutura | VPS mínima (Node.js + SQLite) | **~R$ 27,50** |
-| **Total** | (Conversão estimada: US$ 1 = R$ 5,50) | **~R$ 44,00 / mês** |
+| **Total** | (Conversão estimada: US$ 1 = R$ 5,20) | **~R$ 43,06 / mês** |
 
 ---
 
