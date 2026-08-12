@@ -1,5 +1,3 @@
-// index.js
-// Entrada do pipeline de triagem de mensagens
 
 'use strict';
 
