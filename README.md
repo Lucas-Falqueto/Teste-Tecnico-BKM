@@ -4,7 +4,7 @@ Pipeline Node.js que simula o recebimento de mensagens (WhatsApp/e-mail) monitor
 
 ## 🎥 Demonstração
 
-[![Demonstração do Sistema](https://img.youtube.com/vi/AXUDZZBT6sk/maxresdefault.jpg)](https://youtu.be/AXUDZZBT6sk)
+[![Demonstração do Sistema](https://img.youtube.com/vi/52V5vElStqY/maxresdefault.jpg)](https://youtu.be/52V5vElStqY)
 
 ## Sumário
 - [Arquitetura](#arquitetura)
