@@ -1,0 +1,7 @@
+node_modules/
+.env
+triagem.db
+*.db-shm
+*.db-wal
+inbox/*.txt
+inbox/*.eml

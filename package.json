@@ -1,0 +1,33 @@
+{
+  "name": "desafio-tecnico",
+  "version": "1.0.0",
+  "description": "Pipeline de triagem automática de mensagens para escritório de advocacia",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest",
+    "test:unit": "jest tests/validators.test.js",
+    "test:integration": "jest tests/classifier.test.js --testTimeout=30000",
+    "resumo": "node resumo/gerarResumo.js"
+  },
+  "keywords": [
+    "triagem",
+    "llm",
+    "advocacia",
+    "openai"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "better-sqlite3": "^13.0.3",
+    "chokidar": "^5.0.0",
+    "dotenv": "^17.4.2",
+    "node-cron": "^4.6.0",
+    "openai": "^7.4.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "jest": "^30.4.2"
+  }
+}
