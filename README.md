@@ -2,6 +2,10 @@
 
 Pipeline Node.js que simula o recebimento de mensagens (WhatsApp/e-mail) monitorando a leitura de arquivos `.json`, `.txt` na pasta `inbox/`. O sistema processa a fila, classifica a intenção via OpenAI com **tool use**, extrai campos estruturados, persiste as informações em um banco SQLite e gera um resumo diário em texto.
 
+## 🎥 Demonstração
+
+[![Demonstração do Sistema](https://img.youtube.com/vi/AXUDZZBT6sk/maxresdefault.jpg)](https://youtu.be/AXUDZZBT6sk)
+
 ## Sumário
 - [Arquitetura](#arquitetura)
 - [Tecnologias Usadas](#tecnologias-usadas)
