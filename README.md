@@ -4,6 +4,7 @@ Pipeline Node.js que simula o recebimento de mensagens (WhatsApp/e-mail) monitor
 
 ## Sumário
 - [Arquitetura](#arquitetura)
+- [Tecnologias Usadas](#tecnologias-usadas)
 - [Decisões de design](#decisões-de-design)
 - [Passo a Passo para Iniciar](#passo-a-passo-para-iniciar)
 - [Testes](#testes)
@@ -46,6 +47,17 @@ Resumo diário  (node-cron às 18h | npm run resumo)
 | `financeiro`         | Pagamento, comprovante, boleto, honorários, depósito, parcela paga                 |
 | `documento_recebido` | Envio de certidões, contratos, procurações, laudos, CTPS, perícias                 |
 | `spam_irrelevante`   | Publicidade, promoções, saudação vazia, número errado, sem contexto jurídico       |
+
+---
+
+## Tecnologias Usadas
+
+- **Node.js**: Runtime principal do ecossistema.
+- **OpenAI API (gpt-4o-mini)**: Modelo de Inteligência Artificial para classificação semântica e extração de dados usando Tool Calling (Structured Outputs).
+- **SQLite3 (`better-sqlite3`)**: Banco de dados relacional leve e embutido para persistência segura e eficiente.
+- **Zod**: Validação rigorosa de schemas e tipagem dinâmica.
+- **Jest**: Suíte completa de testes unitários e testes de integração.
+- **Chokidar**: Monitoramento de eventos em arquivos (File System Watcher) para simular entrada assíncrona.
 
 ---
 
