@@ -1,0 +1,49 @@
+╔════════════════════════════════════════╗
+  RESUMO DIÁRIO — 12/08/2026
+  Total de mensagens: 30
+╚════════════════════════════════════════╝
+
+🔴 URGENTES (6)
+  - adv.contrario@escritorioxyz.com.br | Proc. 0009988-11.2023.5.03.0069 | prazo: 08/08/2026 | Advogado da parte contrária propõe acordo de R$45.000 no proc. 0009988-11.2023.5.03.0069. Prazo de resposta: 08/08/2026 (vencido).
+  - +5527999990011 | Proc. 0005432-10.2024.5.03.0020 | prazo: 12/08/2026 | Cliente recebeu notificação de audiência de instrução do processo 0005432-10.2024.5.03.0020 marcada para amanhã, 12/08/2026 às 9h.
+  - Carlos | Proc. 0011456-78.2025.5.03.0132 | prazo: 15/08/2026 | Carlos recebeu intimação com prazo até 15/08/2026 para se manifestar no processo 0011456-78.2025.5.03.0132.
+  - adv2.contrario@outroescritorio.adv.br | Proc. 0003321-55.2024.5.03.0078 | prazo: 16/08/2026 | Advogado da parte contrária propõe acordo de R$28.000 no proc. 0003321-55.2024.5.03.0078. Prazo de resposta: 16/08/2026.
+  - +5527999990021 | Sem nº processo | prazo: 13/08/2026 | Cliente pergunta sobre decisão no processo e informa que prazo para recorrer vence em 13/08/2026.
+  - +5527999990010 | Sem nº processo | prazo: 14/08/2026 | Prazo para interpor recurso ordinário vence em 14/08/2026. Solicita providências urgentes.
+
+📅 AGENDAMENTOS (7)
+  - +5527999990020 | Sem nº processo | sem prazo definido | Potencial cliente pergunta sobre taxa para agendar a primeira consulta.
+  - Fernanda | Sem nº processo | sem prazo definido | Potencial cliente Fernanda busca agendar consulta sobre rescisão de contrato de trabalho.
+  - Patricia Lima | Sem nº processo | sem prazo definido | Cliente solicita cancelamento da consulta de quinta-feira às 10h e deseja remarcar para a próxima semana.
+  - +5527999990006 | Sem nº processo | sem prazo definido | Potencial cliente busca atendimento para divórcio.
+  - +5527999990003 | Sem nº processo | sem prazo definido | Potencial cliente quer agendar consulta sobre demissão.
+  - +5527999990014 | Sem nº processo | sem prazo definido | Potencial cliente indicado busca consulta sobre direito a indenização por acidente de trabalho.
+  - Roberto Souza | Sem nº processo | sem prazo definido | Cliente pergunta sobre documentos necessários para a primeira consulta sobre processo trabalhista.
+
+❓ DÚVIDAS DE PROCESSO (4)
+  - Maria Aparecida | Proc. 0010702-33.2024.5.03.0069 | sem prazo definido | Maria Aparecida pergunta sobre a audiência do processo 0010702-33.2024.5.03.0069.
+  - Luiza Rodrigues | Proc. 0007891-22.2024.5.03.0045 | sem prazo definido | Cliente pergunta sobre andamento do processo 0007891-22.2024.5.03.0045.
+  - +5527999990012 | Sem nº processo | sem prazo definido | Cliente pergunta sobre a decisão interlocutória que saiu ontem e se foi favorável.
+  - +5527999990013 | Sem nº processo | sem prazo definido | Cliente pergunta sobre custas processuais e se precisa pagar algo.
+
+💰 FINANCEIRO (5)
+  - marcos.oliveira@empresa.com.br | Sem nº processo | sem prazo definido | Solicita emissão de nota fiscal referente aos serviços jurídicos prestados em julho/2026.
+  - financeiro@empresa.com.br | Sem nº processo | sem prazo definido | Comprovante de pagamento da 2ª parcela dos honorários enviado.
+  - Paulo Henrique | Proc. 0001234-56.2023.5.03.0010 | sem prazo definido | Cliente enviou comprovante de depósito judicial referente ao acordo no processo 0001234-56.2023.5.03.0010.
+  - +5527999990016 | Sem nº processo | sem prazo definido | Comprovante da 1ª parcela de R$1.200,00 do contrato foi enviado.
+  - +5527999990015 | Sem nº processo | sem prazo definido | Solicita reenvio do boleto de honorários de agosto.
+
+📄 DOCUMENTOS RECEBIDOS (4)
+  - +5527999990004 | Sem nº processo | sem prazo definido | Cliente enviou foto do laudo do INSS solicitado.
+  - Ana Paula | Sem nº processo | sem prazo definido | Cliente enviou procuração assinada, RG, CPF e comprovante de residência atualizado.
+  - +5527999990017 | Sem nº processo | sem prazo definido | Cliente enviou fotos do contrato de trabalho solicitado.
+  - João Silva | Sem nº processo | sem prazo definido | Cliente enviou a CTPS digitalizada solicitada.
+
+🗑️ SPAM / IRRELEVANTES (4)
+  - +5527999990019 | Sem nº processo | sem prazo definido | Mensagem com número errado.
+  - +5527999990002 | Sem nº processo | sem prazo definido | Promoção de consórcio.
+  - vendas@softwarejuridico.com.br | Sem nº processo | sem prazo definido | Promoção de software jurídico.
+  - +5527999990018 | Sem nº processo | sem prazo definido | Saudação vazia, sem conteúdo relevante.
+
+TOTAIS POR CATEGORIA:
+  urgente_prazo:6  duvida_processo:4  agendamento:7  financeiro:5  documento_recebido:4  spam_irrelevante:4
