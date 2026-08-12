@@ -2,6 +2,16 @@
 
 Pipeline Node.js que simula o recebimento de mensagens (WhatsApp/e-mail) monitorando a leitura de arquivos `.json`, `.txt` na pasta `inbox/`. O sistema processa a fila, classifica a intenção via OpenAI com **tool use**, extrai campos estruturados, persiste as informações em um banco SQLite e gera um resumo diário em texto.
 
+## Sumário
+- [Arquitetura](#arquitetura)
+- [Decisões de design](#decisões-de-design)
+- [Passo a Passo para Iniciar](#passo-a-passo-para-iniciar)
+- [Testes](#testes)
+- [Estrutura de pastas](#estrutura-de-pastas)
+- [O que faria diferente com mais tempo](#o-que-faria-diferente-com-mais-tempo)
+- [Estimativa de custo mensal](#estimativa-de-custo-mensal-500-mensagensdia)
+- [Limitações assumidas](#limitações-assumidas)
+
 ---
 
 ## Arquitetura
@@ -68,31 +78,37 @@ Zero setup, portável, suficiente para volume de um escritório. A camada de ace
 
 ---
 
-## Configuração
+## Passo a Passo para Iniciar
 
+**1. Clone o repositório**
 ```bash
-# Copie o arquivo de exemplo e preencha sua chave
-cp .env.example .env
+git clone https://github.com/Lucas-Falqueto/Teste-Tecnico-BKM.git
+cd Teste-Tecnico-BKM
 ```
 
-Variáveis do `.env`:
-
-| Variável          | Padrão        | Descrição                                      |
-|-------------------|---------------|------------------------------------------------|
-| `OPENAI_API_KEY`  | —             | Chave da API OpenAI (obrigatória)              |
-| `OPENAI_MODEL`    | `gpt-4o-mini` | Modelo a usar                                  |
-| `CONFIANCA_MINIMA`| `0.6`         | Abaixo disso → fila de revisão humana          |
-
----
-
-## Como rodar
-
+**2. Instale as dependências**
 ```bash
 npm install
-npm start
 ```
 
-O pipeline inicia o FolderWatcher e fica aguardando arquivos na pasta `inbox/`.
+**3. Configure o ambiente**
+Crie uma cópia do arquivo de configuração:
+```bash
+cp .env.example .env
+```
+Abra o arquivo `.env` gerado e preencha a sua chave da OpenAI.
+Variáveis disponíveis:
+- `OPENAI_API_KEY`: Chave da API OpenAI (obrigatória)
+- `OPENAI_MODEL`: Modelo a usar (padrão: `gpt-4o-mini`)
+- `CONFIANCA_MINIMA`: Limiar para fila de revisão humana (padrão: `0.6`)
+
+**4. Inicie o sistema**
+```bash
+npm start
+```
+O pipeline iniciará o watcher e ficará aguardando arquivos na pasta `inbox/`.
+
+---
 
 ### Simulação via arquivo
 
