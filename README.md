@@ -57,9 +57,6 @@ Controle total sobre o tool use do OpenAI, validação com Zod e lógica de retr
 ### Por que OpenAI tool use e não "responda em JSON"?
 `tool_choice: forced` garante que o modelo **sempre** retorne a estrutura definida, validada por Zod. Elimina alucinações de formato e exceções de parse — o modelo não pode "esquecer" um campo.
 
-### Por que regex fora da classificação?
-A categoria é decidida **100% por compreensão semântica** (LLM). Regex entra apenas depois, para validar o **formato** do número CNJ e normalizar datas — nunca para decidir categoria. Garante que mensagens ambíguas (ex.: "Vocês cobram para agendar?") sejam classificadas por intenção, não por palavra-chave.
-
 ### Por que SQLite e não PostgreSQL?
 Zero setup, portável, suficiente para volume de um escritório. A camada de acesso (`storage/messageRepo.js`) isola o SQL — trocar para Postgres é mudar só esse arquivo.
 
