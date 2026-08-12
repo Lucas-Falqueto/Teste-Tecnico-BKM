@@ -8,7 +8,8 @@
     "test": "jest",
     "test:unit": "jest tests/validators.test.js",
     "test:integration": "jest tests/classifier.test.js --testTimeout=30000",
-    "resumo": "node resumo/gerarResumo.js"
+    "resumo": "node resumo/gerarResumo.js",
+    "token:test": "node tests/token_test.js"
   },
   "keywords": [
     "triagem",
