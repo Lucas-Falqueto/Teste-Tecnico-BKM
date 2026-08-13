@@ -36,9 +36,12 @@ Validação pós-LLM  (regex valida FORMATO: nº CNJ, data — nunca decide cate
    ▼
 Persistência  (SQLite via better-sqlite3)
    │
-   ▼
-Resumo diário  (node-cron às 18h | npm run resumo)
-   urgentes no topo → totais por categoria
+   ├──▶ Resumo diário em texto (node-cron às 18h | npm run resumo)
+   │
+   └──▶ Servidor Web Express (npm run server na porta 3000)
+        ├──▶ REST API (/api/messages, /api/stats)
+        ├──▶ Server-Sent Events (/api/events) para Live Update no frontend
+        └──▶ Frontend Vanilla JS (HTML/CSS/JS sem build, servindo Dashboard)
 ```
 
 ### Categorias (enum fechado)
@@ -57,6 +60,8 @@ Resumo diário  (node-cron às 18h | npm run resumo)
 ## Tecnologias Usadas
 
 - **Node.js**: Runtime principal do ecossistema.
+- **Express**: Servidor HTTP minimalista para servir a API REST e a página web.
+- **HTML/CSS/JS (Vanilla)**: Frontend puramente nativo, sem frameworks ou build steps, provando domínio dos fundamentos web, flexibilidade e performance.
 - **OpenAI API (gpt-4o-mini)**: Modelo de Inteligência Artificial para classificação semântica e extração de dados usando Tool Calling (Structured Outputs).
 - **SQLite3 (`better-sqlite3`)**: Banco de dados relacional leve e embutido para persistência segura e eficiente.
 - **Zod**: Validação rigorosa de schemas e tipagem dinâmica.
@@ -75,6 +80,9 @@ Controle total sobre o tool use do OpenAI, validação com Zod e lógica de retr
 
 ### Por que SQLite e não PostgreSQL?
 Zero setup, portável, suficiente para volume de um escritório. A camada de acesso (`storage/messageRepo.js`) isola o SQL — trocar para Postgres é mudar só esse arquivo.
+
+### Por que Vanilla JS no Frontend e SSE (Server-Sent Events)?
+Em vez de React ou Vue, optar por HTML/CSS/JS nativo elimina a complexidade de *build steps* (Webpack/Vite) e o peso no `node_modules`. O uso de SSE no lugar de WebSockets permite atualizar o dashboard instantaneamente a cada nova mensagem usando o protocolo HTTP padrão de forma leve.
 
 ### Tratamento de alucinação e erro
 - `confianca < 0.6` → `status_revisao = 'erro_extracao'` (fila de revisão humana)
@@ -117,10 +125,16 @@ Variáveis disponíveis:
 - `TOKEN_TEST_TOTAL_ITENS`: Total de itens para projeção de custo em `npm run token:test` (padrão: `500`)
 
 **4. Inicie o sistema**
+Para iniciar o sistema de forma "headless" (apenas log no terminal):
 ```bash
 npm start
 ```
-O pipeline iniciará o watcher e ficará aguardando arquivos na pasta `inbox/`.
+
+Para iniciar o **Servidor com a Interface Web** e o pipeline juntos:
+```bash
+npm run server
+```
+Em seguida, abra seu navegador em `http://localhost:3000`.
 
 ---
 
@@ -200,6 +214,8 @@ Exemplo de saída:
 
 ```
 .
+├── api/
+│   └── routes.js           Rotas REST (Express) e endpoint SSE (/api/events)
 ├── channels/
 │   ├── channel.js          Interface base (plugável para canais reais)
 │   └── folderWatcher.js    Watcher de pasta (chokidar)
@@ -222,8 +238,13 @@ Exemplo de saída:
 │   ├── fixtures/messages.js  20 mensagens + casos adversariais
 │   ├── validators.test.js
 │   └── classifier.test.js
+├── web/
+│   ├── index.html          Estrutura do Dashboard e Fila de Revisão
+│   ├── style.css           Design System Vanilla (Light/Dark mode)
+│   └── app.js              Lógica do Frontend consumindo a API
 ├── inbox/                  Pasta observada (simulação)
-├── index.js                Entrada do pipeline
+├── index.js                Entrada do pipeline (Headless)
+├── server.js               Entrada do Servidor Web Express + Pipeline
 └── .env.example
 ```
 
@@ -231,10 +252,9 @@ Exemplo de saída:
 
 ## O que faria diferente com mais tempo
 
-1. **Interface web de revisão** — tela para o advogado ver as mensagens com `erro_extracao` e corrigi-las, alimentando o banco de exemplos negativos
-2. **Fine-tuning ou few-shot dinâmico** — usar os casos corrigidos pelo advogado para melhorar o prompt automaticamente
-3. **Canais reais** — `WhatsAppBusinessChannel` e `GmailChannel` implementando a interface `Channel` sem mudar nada no pipeline
-5. **Alertas proativos** — notificar via Slack/e-mail quando uma `urgente_prazo` é detectada, sem esperar o cron das 18h
+1. **Fine-tuning ou few-shot dinâmico** — usar os casos corrigidos pelo advogado na fila de revisão para melhorar o prompt automaticamente.
+2. **Canais reais** — `WhatsAppBusinessChannel` e `GmailChannel` implementando a interface `Channel` sem mudar nada no pipeline.
+3. **Alertas proativos** — notificar via Slack/e-mail quando uma `urgente_prazo` é detectada, sem esperar o cron das 18h.
 
 ---
 
