@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Triagem de Mensagens — Dashboard</title>
+  <meta name="description" content="Interface de monitoramento e triagem automática de mensagens para escritório de advocacia." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- ── SIDEBAR ── -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <span class="logo-icon">⚖️</span>
+      <span class="logo-text">Triagem<br /><small>Advocacia</small></span>
+    </div>
+
+    <nav class="sidebar-nav">
+      <button class="nav-item active" data-tab="dashboard" id="nav-dashboard">
+        <span class="nav-icon">📊</span>
+        <span>Dashboard</span>
+      </button>
+      <button class="nav-item" data-tab="messages" id="nav-messages">
+        <span class="nav-icon">📩</span>
+        <span>Mensagens</span>
+      </button>
+      <button class="nav-item" data-tab="review" id="nav-review">
+        <span class="nav-icon">⚠️</span>
+        <span>Revisão</span>
+        <span class="badge" id="badge-errors"></span>
+      </button>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="sse-status" id="sse-status">
+        <span class="sse-dot disconnected"></span>
+        <span class="sse-label">Conectando...</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ── MAIN ── -->
+  <main class="main">
+
+    <!-- HEADER -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <h1 id="page-title">Dashboard</h1>
+        <p class="topbar-subtitle" id="page-subtitle">Visão geral do dia</p>
+      </div>
+      <div class="topbar-right">
+        <!-- Toggle Tema -->
+        <button id="theme-toggle" class="btn-refresh" title="Alternar tema">
+          <span id="theme-icon">☀️</span>
+        </button>
+
+        <span class="date-label">Data:</span>
+        <input type="date" id="date-picker" class="date-input" />
+        <button id="btn-refresh" class="btn-refresh" title="Atualizar dados">↻</button>
+      </div>
+    </header>
+
+    <!-- ── TAB: DASHBOARD ── -->
+    <section class="tab-content active" id="tab-dashboard">
+      <!-- Cards de totais -->
+      <div class="stats-grid" id="stats-grid">
+        <div class="stat-card skeleton" id="card-urgente_prazo">
+          <div class="card-icon">🔴</div>
+          <div class="card-info">
+            <span class="card-count">—</span>
+            <span class="card-label">Urgentes</span>
+          </div>
+        </div>
+        <div class="stat-card skeleton" id="card-agendamento">
+          <div class="card-icon">📅</div>
+          <div class="card-info">
+            <span class="card-count">—</span>
+            <span class="card-label">Agendamentos</span>
+          </div>
+        </div>
+        <div class="stat-card skeleton" id="card-duvida_processo">
+          <div class="card-icon">❓</div>
+          <div class="card-info">
+            <span class="card-count">—</span>
+            <span class="card-label">Dúvidas</span>
+          </div>
+        </div>
+        <div class="stat-card skeleton" id="card-financeiro">
+          <div class="card-icon">💰</div>
+          <div class="card-info">
+            <span class="card-count">—</span>
+            <span class="card-label">Financeiro</span>
+          </div>
+        </div>
+        <div class="stat-card skeleton" id="card-documento_recebido">
+          <div class="card-icon">📄</div>
+          <div class="card-info">
+            <span class="card-count">—</span>
+            <span class="card-label">Documentos</span>
+          </div>
+        </div>
+        <div class="stat-card skeleton" id="card-spam_irrelevante">
+          <div class="card-icon">🗑️</div>
+          <div class="card-info">
+            <span class="card-count">—</span>
+            <span class="card-label">Spam</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Urgentes do dia / Lista Filtrada -->
+      <div class="section-header">
+        <h2 id="dashboard-list-title">🔴 Urgentes do Dia</h2>
+        <span class="section-badge" id="urgent-count">0</span>
+      </div>
+      <div class="message-list" id="urgent-list">
+        <div class="empty-state">Nenhuma mensagem urgente hoje 🎉</div>
+      </div>
+    </section>
+
+    <!-- ── TAB: MENSAGENS ── -->
+    <section class="tab-content" id="tab-messages">
+      <div class="section-header">
+        <h2>📩 Todas as Mensagens</h2>
+        <span class="section-badge" id="all-count">0</span>
+      </div>
+      <div class="message-list" id="all-list">
+        <div class="empty-state">Nenhuma mensagem encontrada para esta data.</div>
+      </div>
+    </section>
+
+    <!-- ── TAB: REVISÃO ── -->
+    <section class="tab-content" id="tab-review">
+      <div class="section-header">
+        <h2>⚠️ Fila de Revisão</h2>
+        <span class="section-badge warning" id="review-count">0</span>
+      </div>
+      <p class="section-desc">Mensagens com extração incompleta ou confiança abaixo do limiar. Revise e marque como concluído.</p>
+      <div class="message-list" id="review-list">
+        <div class="empty-state">Nenhuma mensagem aguardando revisão ✅</div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── TOAST CONTAINER ── -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
