@@ -89,4 +89,17 @@ function isDuplicate(remetente, texto) {
   return !!row;
 }
 
-module.exports = { save, findByDate, countByCategory, findUrgentByDate, findErros, isDuplicate };
+/**
+ * Atualiza o status de revisão de uma mensagem.
+ * @param {string} id
+ * @param {string} status - 'novo' | 'revisado' | 'erro_extracao'
+ */
+function updateStatus(id, status) {
+  const db = getDb();
+  return db
+    .prepare(`UPDATE messages SET status_revisao = ? WHERE id = ?`)
+    .run(status, id);
+}
+
+module.exports = { save, findByDate, countByCategory, findUrgentByDate, findErros, isDuplicate, updateStatus };
+
