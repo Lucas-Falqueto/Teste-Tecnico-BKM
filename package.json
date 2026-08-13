@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "server": "node server.js",
     "test": "jest",
     "test:unit": "jest tests/validators.test.js",
     "test:integration": "jest tests/classifier.test.js --testTimeout=30000",
@@ -24,6 +25,7 @@
     "better-sqlite3": "^13.0.3",
     "chokidar": "^5.0.0",
     "dotenv": "^17.4.2",
+    "express": "^5.2.1",
     "node-cron": "^4.6.0",
     "openai": "^7.4.0",
     "zod": "^4.4.3"
